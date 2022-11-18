@@ -1,0 +1,29 @@
+@each $key, $val in $colors {
+  .text-#{$key} {
+    color: $val;
+  }
+
+  .bg-#{$key} {
+    background-color: $val;
+  }
+
+  @for $index from 1 through 9 {
+    .text-#{$key}-light-#{$index} {
+      color: mix(white, $val, $index * 10%);
+    }
+
+    .bg-#{$key}-light-#{$index} {
+      background-color: mix(white, $val, $index * 10%);
+    }
+  }
+
+  @for $index from 1 through 9 {
+    .text-#{$key}-dark-#{$index} {
+      color: mix(black, $val, $index * 10%);
+    }
+
+    .bg-#{$key}-dark-#{$index} {
+      background-color: mix(black, $val, $index * 10%);
+    }
+  }
+}
